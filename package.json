@@ -1,0 +1,64 @@
+{
+  "name": "line-number-copy",
+  "displayName": "line-number-copy",
+  "description": "An extension designed to let you copy line numbers and the code itself\"",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.copyWithLineNumbers",
+        "title": "Copy with Line Numbers"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.copyWithLineNumbers",
+          "group": "copy",
+          "when": "editorTextFocus"
+        }
+      ]
+    },
+    "activationEvents": [
+      "onCommand:extension.copyWithLineNumbers"
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "format": "prettier --write .",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/sinon": "^17.0.2",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.13.1",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "chai": "^4.3.10",
+    "eslint": "^8.56.0",
+    "eslint-config-standard-with-typescript": "^43.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "prettier": "^3.1.1",
+    "sinon": "^17.0.1",
+    "typescript": "^5.3.3"
+  }
+}
